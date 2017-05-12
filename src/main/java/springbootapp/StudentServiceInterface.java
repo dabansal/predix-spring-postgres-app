@@ -7,21 +7,43 @@
  * with the terms and conditions stipulated in the agreement/contract
  * under which the software has been supplied.
  */
-
+ 
 package springbootapp;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.List;
 
 /**
  * 
  * @author predix -
  */
-@SpringBootApplication
-public class RestAppMainClass {
+public interface StudentServiceInterface {
 
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(RestAppMainClass.class, args);
-	}
+	/**
+	 * @return -
+	 */
+	List<Student> getAllStudents();
+
+	/**
+	 * @param studentId
+	 * @return -
+	 */
+	Student getStudent(int studentId);
+
+	/**
+	 * @param student -
+	 */
+	void createStudent(Student student);
+
+	/**
+	 * @param student -
+	 */
+	void updateStudent(Student student);
+
+	/**
+	 * @param studentId
+	 * @return -
+	 */
+	Student deleteStudent(int studentId);
+
 
 }

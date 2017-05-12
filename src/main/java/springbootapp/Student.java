@@ -42,8 +42,12 @@ public class Student {
 		this.nationality = nationality;
 	}
 
-	public void Student() {
-
+	/**
+	 * No Arg Constructor
+	 */
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**

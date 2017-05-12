@@ -10,6 +10,7 @@
 
 package springbootapp;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,12 +22,12 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class StudentService {
+public class StudentService implements StudentServiceInterface {
 
-	List<Student> studentList = Arrays.asList(new Student(1, "dheeraj", "bansal", 11, "bangalore", "India"),
-			new Student(21, "neeraj", "bansal", 11, "pune", "India"));
+	List<Student> studentList = new ArrayList<Student>( Arrays.asList(new Student(1, "dheeraj", "bansal", 11, "bangalore", "India"),
+			new Student(21, "neeraj", "bansal", 11, "pune", "India")));
 	
-	
+	@Override
 	public List<Student> getAllStudents(){
 		return studentList;
 	}
@@ -36,6 +37,7 @@ public class StudentService {
 	 * @param studentId
 	 * @return -
 	 */
+	@Override
 	public Student getStudent(int studentId) {
 		
 		return studentList.get(0);
@@ -45,8 +47,30 @@ public class StudentService {
 	/**
 	 * @param student -
 	 */
+	@Override
 	public void createStudent(Student student) {
 		studentList.add(student);
+	}
+
+
+	/**
+	 * @param student -
+	 */
+	@Override
+	public void updateStudent(Student student) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	/**
+	 * @param studentId
+	 * @return -
+	 */
+	@Override
+	public Student deleteStudent(int studentId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

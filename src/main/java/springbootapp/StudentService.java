@@ -12,8 +12,10 @@ package springbootapp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,14 +26,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentService implements StudentServiceInterface {
 
-	List<Student> studentList = new ArrayList<Student>( Arrays.asList(new Student(1, "dheeraj", "bansal", 11, "bangalore", "India"),
-			new Student(21, "neeraj", "bansal", 11, "pune", "India")));
-	
-	@Override
-	public List<Student> getAllStudents(){
-		return studentList;
-	}
+	@Autowired
+	private StudentDAO studentDAO;
 
+	@Override
+	public List<Student> getAllStudents() {
+		List studentsList = new ArrayList<Student>();
+		Iterator studentIterator = (Iterator) studentDAO.findAll();
+		while (studentIterator.hasNext()) {
+			studentsList.add((Student) studentIterator.next());
+		}
+		return studentsList;
+	}
 
 	/**
 	 * @param studentId
@@ -39,38 +45,35 @@ public class StudentService implements StudentServiceInterface {
 	 */
 	@Override
 	public Student getStudent(int studentId) {
-		
-		return studentList.get(0);
+		return studentDAO.findOne(studentId);
 	}
 
-
 	/**
-	 * @param student -
+	 * @param student
+	 *            -
 	 */
 	@Override
 	public void createStudent(Student student) {
-		studentList.add(student);
+		studentDAO.save(student);
 	}
 
-
 	/**
-	 * @param student -
+	 * @param student
+	 *            -
 	 */
 	@Override
 	public void updateStudent(Student student) {
 		// TODO Auto-generated method stub
-		
+		studentDAO.save(student);
 	}
-
 
 	/**
 	 * @param studentId
 	 * @return -
 	 */
 	@Override
-	public Student deleteStudent(int studentId) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteStudent(int studentId) {
+		studentDAO.delete(studentId);
 	}
 
 }

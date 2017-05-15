@@ -57,8 +57,8 @@ public class StudentController {
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/students/{studentId}")
-	public Student deleteStudent(@PathVariable int studentId) {
-		return studentService.deleteStudent(studentId);
+	public void deleteStudent(@PathVariable int studentId) {
+		studentService.deleteStudent(studentId);
 	}
 
 }

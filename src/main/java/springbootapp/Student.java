@@ -10,12 +10,19 @@
 
 package springbootapp;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 
  * @author predix -
  */
+@Entity
+@Table(name = "student")
 public class Student {
 
+	@Id
 	int studentid;
 	String firstname;
 	String lastname;

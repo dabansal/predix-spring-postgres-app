@@ -7,43 +7,16 @@
  * with the terms and conditions stipulated in the agreement/contract
  * under which the software has been supplied.
  */
- 
+
 package springbootapp;
 
-import java.util.List;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * 
  * @author predix -
  */
-public interface StudentServiceInterface {
-
-	/**
-	 * @return -
-	 */
-	List<Student> getAllStudents();
-
-	/**
-	 * @param studentId
-	 * @return -
-	 */
-	Student getStudent(int studentId);
-
-	/**
-	 * @param student -
-	 */
-	void createStudent(Student student);
-
-	/**
-	 * @param student -
-	 */
-	void updateStudent(Student student);
-
-	/**
-	 * @param studentId
-	 * @return -
-	 */
-	void deleteStudent(int studentId);
-
+public interface StudentDAO extends CrudRepository<Student, Integer> {
 
 }

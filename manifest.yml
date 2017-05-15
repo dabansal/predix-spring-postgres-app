@@ -1,8 +1,9 @@
 applications:
   - name: spring-boot-rest-app-micro-service
-    buildpack: java_buildpack
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git
     path: target/myspringbootapp-0.0.1-SNAPSHOT.jar
     memory: 512M
+    disk_quota: 512M
     services:
       - postgres-test
  

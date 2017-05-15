@@ -12,6 +12,7 @@ package springbootapp;
 
 import javax.sql.DataSource;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -25,6 +26,7 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 @Profile("cloud")
 @ComponentScan("springbootapp")
+@EnableAutoConfiguration
 public class SpringAppConfig extends AbstractCloudConfig {
 
 	@Bean(destroyMethod = "close")

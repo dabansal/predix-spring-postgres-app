@@ -32,6 +32,7 @@ public class StudentService implements StudentServiceInterface {
 	@Override
 	public List<Student> getAllStudents() {
 		List studentsList = new ArrayList<Student>();
+		studentDAO.findAll();
 		Iterator studentIterator = (Iterator) studentDAO.findAll();
 		while (studentIterator.hasNext()) {
 			studentsList.add((Student) studentIterator.next());

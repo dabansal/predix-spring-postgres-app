@@ -43,7 +43,9 @@ public class StudentController {
 
 	@RequestMapping("/students/{studentId}")
 	public Student getStudent(@PathVariable int studentId) {
-		return studentService.getStudent(studentId);
+		Student tempStudent = studentService.getStudent(studentId);
+		System.out.println("student info is "+tempStudent);
+		return tempStudent;
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/student")

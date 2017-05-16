@@ -22,6 +22,15 @@ import javax.persistence.Table;
 @Table(name = "student")
 public class Student {
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Student [studentid=" + studentid + ", firstname=" + firstname + ", lastname=" + lastname + ", age="
+				+ age + ", address=" + address + ", nationality=" + nationality + "]";
+	}
+
 	@Id
 	int studentid;
 	String firstname;
